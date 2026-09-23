@@ -45,6 +45,31 @@ produce an exceedance probability (EP) curve for reinsurance pricing.
 
 ![EP Curve](ep_curve.png)
 
+## How to Run
+
+The scripts are designed to run in order:
+
+1. `catm_verify.py` — Visual overlay of historical map and modern 
+   buildings (verification only)
+2. `catm_exposure.py` — Build the exposure table from building 
+   footprints
+3. `catm_hazard.py` — Simulate one earthquake event to verify the 
+   hazard layer
+4. `catm_vulnerability.py` — Convert PGA to damage ratio for the 
+   example event
+5. `catm_simulation.py` — Run the full 10,000-year Monte Carlo 
+   simulation
+6. `catm_EP.py` — Generate the exceedance probability curve
+
+**Install dependencies first:**
+
+    pip install -r requirements.txt
+
+**Note:** The input data files (building footprints, historical map) 
+are not included in this repo due to size. Download from:
+- Buildings: CSDI Portal
+- Historical map: DATA.GOV.HK
+
 ## Limitations
 - Construction type and building age not modeled
 - Single vulnerability curve for all buildings
